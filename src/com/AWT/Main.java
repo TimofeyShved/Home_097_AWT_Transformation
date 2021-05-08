@@ -21,7 +21,7 @@ public class Main extends Frame {
     }
 
     private void prepareGUI(){
-        setSize(1200,800); // размеры
+        setSize(1200,400); // размеры
         addWindowListener(new WindowAdapter() { // действие на закрытие окна
             public void windowClosing(WindowEvent windowEvent){
                 System.exit(0);
@@ -84,12 +84,19 @@ public class Main extends Frame {
         g2.setColor(Color.black);
         AffineTransform tx5 = new AffineTransform();
         tx5.translate(0,0); // сдвиг
-        tx5.rotate(45);
+
+        Rectangle rectangle6 = new Rectangle();// создание Rectangle2D
+        rectangle6.setFrame(800, 100, 100, 100);  // размеры
+
+        tx5.rotate(Math.toRadians(45));
         g2.setTransform(tx5);
 
-        Rectangle2D rectangle6 = new Rectangle2D.Float();// создание Rectangle2D
-        rectangle5.setFrame(600, 100, 100, 100);  // размеры
-        g2.fill (rectangle5); // прорисовка Rectangle2D
+        rectangle6.x=900;
+        rectangle6.y=-600;
+
+        g2.fill (rectangle6); // прорисовка Rectangle2D
+
+
 
         g2.dispose();
     }
