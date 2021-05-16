@@ -9,31 +9,31 @@ import javax.swing.JPanel;
 
 class Surface extends JPanel {
 
-    private void doDrawing(Graphics g) {
+    private void doDrawing(Graphics g) { // графика
 
-        Graphics2D g2d = (Graphics2D) g.create();
+        Graphics2D g2d = (Graphics2D) g.create(); // объявление класса Graphics2D
 
-        g2d.setPaint(new Color(150, 150, 150));
-        g2d.fillRect(20, 20, 80, 50);
-        g2d.translate(180, -50);
-        g2d.rotate(Math.PI/4);
-        g2d.fillRect(80, 80, 80, 50);
+        g2d.setPaint(new Color(150, 150, 150)); // цвет
+        g2d.fillRect(20, 20, 80, 50); // закрасить прямоуголник
+        g2d.translate(180, -50); // переместить
+        g2d.rotate(Math.PI/4); // повернуть
+        g2d.fillRect(80, 80, 80, 50);// закрасить прямоуголник
 
         g2d.dispose();
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) { // компонент графики
 
         super.paintComponent(g);
-        doDrawing(g);
+        doDrawing(g);// вызов нашей графики
     }
 }
 
 public class RotationEx extends JFrame {
 
-    public RotationEx() {
-
+    public RotationEx() { // конструктор
+        // инициализация
         initUI();
     }
 
@@ -41,21 +41,21 @@ public class RotationEx extends JFrame {
 
         setTitle("Rotation");
 
-        add(new Surface());
+        add(new Surface()); // добавление нашего объекта, на форму
 
-        setSize(300, 200);
+        setSize(300, 200); // размеры
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // выход
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // главный класс, начало кода
 
-        EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() { // поток
             @Override
-            public void run() {
+            public void run() { // запуск
 
-                RotationEx ex = new RotationEx();
-                ex.setVisible(true);
+                RotationEx ex = new RotationEx(); // создание нашего класса
+                ex.setVisible(true); // видимость
             }
         });
     }
